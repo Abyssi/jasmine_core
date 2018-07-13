@@ -1,0 +1,7 @@
+#Zookeeper cluster config
+clusterName: jasmine.cf
+machineType: t2.micro
+maxSize: 3
+minSize: 3
+name: zookeeper-nodes
+awsRegion: eu-west-1

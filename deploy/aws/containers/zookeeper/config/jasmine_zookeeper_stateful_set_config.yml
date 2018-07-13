@@ -1,0 +1,3 @@
+#Zookeeper StatefulSet config
+nodesAffinity: zookeeper-nodes
+replicas: 3

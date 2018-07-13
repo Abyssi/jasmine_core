@@ -1,0 +1,9 @@
+#Kafka StatefulSet config
+replicas: 1
+kafkaBrokerID: -1
+kafkaOutsidePort: 32094
+kafkaOutsideListenerHostname: www.jasmine.cf
+zookeeperFirstHostName: zk-0.zk-cs.default.svc.cluster.local
+zookeeperSecondHostName: zk-1.zk-cs.default.svc.cluster.local
+zookeeperThirdHostName: zk-2.zk-cs.default.svc.cluster.local
+zookeeperPort: 2181

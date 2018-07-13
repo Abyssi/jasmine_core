@@ -1,0 +1,7 @@
+#Kafka cluster config
+clusterName: jasmine.cf
+machineType: t2.micro
+maxSize: 3
+minSize: 3
+name: kafka-nodes
+awsRegion: eu-west-1
