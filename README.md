@@ -55,7 +55,13 @@ The following table shows configurations options:
 
 # AWS Deployment
 To create cluster environment go to [Kops](https://github.com/kubernetes/kops)
+
 Then follow the steps in this [tutorial](https://github.com/kubernetes/kops/blob/master/docs/aws.md)
+
 Afterwards, cd in "jasmine_AWS" folder in this repo.
-Run `./jasmine_cluster.sh --public-key YOUR_PUBLIC_KEY`
-Then follow instruction to be aware that cluster is ready
+
+Run `./jasmine_cluster.sh --public-key YOUR_PUBLIC_KEY`.
+
+Then follow instruction to be aware that cluster is ready.
+
+When Kops cluster is ready, run `./jasmine_deploy.sh`.
