@@ -52,3 +52,10 @@ The following table shows configurations options:
 |controller.cycle.duration | int|traffic light cycle duration|200|
 |controller.yellow.duration| int| yellow light duration|4|
 |controller.all.red.duration| int| all red duration|2|
+
+# AWS Deployment
+To create cluster environment go to [Kops](https://github.com/kubernetes/kops)
+Then follow the steps in this [tutorial](https://github.com/kubernetes/kops/blob/master/docs/aws.md)
+Afterwards, cd in "jasmine_AWS" folder in this repo.
+Run `./jasmine_cluster.sh --public-key YOUR_PUBLIC_KEY`
+Then follow instruction to be aware that cluster is ready
