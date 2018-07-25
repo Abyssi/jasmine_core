@@ -12,6 +12,7 @@ import com.jasmine.jasmine_core.StreamFunctions.KeySelectors.JNBaseSemaphoreMess
 import com.jasmine.jasmine_core.StreamFunctions.KeySelectors.JNIdentifiedIdKeySelector;
 import com.jasmine.jasmine_core.StreamFunctions.MapFunctions.*;
 import com.jasmine.jasmine_core.StreamFunctions.ReduceFunctions.JNLeaderboardReduceFunction;
+import com.jasmine.jasmine_core.StreamFunctions.ReduceFunctions.JNMedianReduceFunction;
 import com.jasmine.jasmine_core.StreamFunctions.SinkFunctions.JsonPrintSinkFunction;
 import com.jasmine.jasmine_core.StreamFunctions.TimestampExtractors.*;
 import com.jasmine.jasmine_core.Utils.FlinkParameters;
@@ -105,11 +106,13 @@ public class JNSemaphoreMonitor extends JNSemaphoreConnector {
             // Compute partial median data
             DataStream<JNMedian> partialCrossroadsMedianDataStream = MetricsMapper.wrap(windowedKeyedTimestampedCrossroadsStream.aggregate(new JNCrossroadsMedianAggregateFunction()).name("JNCrossroadsMedianAggregateFunction"));
             // Assign timestamps to crossroads
-            DataStream<JNMedian> timestampedPartialCrossroadsMedianDataStream = MetricsMapper.wrap(partialCrossroadsMedianDataStream.assignTimestampsAndWatermarks(new JNMedianTimestampExtractor()).name("JNMedianTimestampExtractor"));
+            DataStream<JNMedian> timestampedPartialCrossroadsMedianDataStream = MetricsMapper.wrap(partialCrossroadsMedianDataStream.assignTimestampsAndWatermarks(new JNMedianTimestampExtractor()).setParallelism(1).name("JNMedianTimestampExtractor"));
             // Assign sliding windows
             AllWindowedStream<JNMedian, TimeWindow> windowedTimestampedPartialCrossroadsMedianDataStream = timeWindow[1].toMilliseconds() == 0 ? timestampedPartialCrossroadsMedianDataStream.timeWindowAll(timeWindow[0]) : timestampedPartialCrossroadsMedianDataStream.timeWindowAll(timeWindow[0], timeWindow[1]);
-            // Compute final median value
-            DataStream<Double> crossroadsMedianStream = MetricsMapper.wrap(windowedTimestampedPartialCrossroadsMedianDataStream.aggregate(new JNMedianAggregateFunction()).setParallelism(1).name("JNMedianAggregateFunction"));
+            // Compute final median struct
+            DataStream<JNMedian> crossroadsMedianStructStream = MetricsMapper.wrap(windowedTimestampedPartialCrossroadsMedianDataStream.reduce(new JNMedianReduceFunction()).setParallelism(1).name("JNMedianReduceFunction"));
+            // Map to a double
+            DataStream<Double> crossroadsMedianStream = MetricsMapper.wrap(crossroadsMedianStructStream.map(new JNMedianToDoubleMapFunction()).name("JNMedianToDoubleMapFunction"));
 
             // Connect crossroads stream with median stream
             ConnectedStreams<Double, JNCrossroads> medianAndCrossroadsConnectedStream = crossroadsMedianStream.connect(crossroadsStream);

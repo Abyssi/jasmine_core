@@ -54,7 +54,6 @@ com/jasmine/jasmine_core/StreamFunctions/ProcessFunctions/JNDetailedCrossroadsTo
 com/jasmine/jasmine_core/Utils/FlinkParameters.class
 com/jasmine/jasmine_core/Utils/MathUtils.class
 com/jasmine/jasmine_core/StreamFunctions/FlatMapFunctions/JNSemaphoreRouteSubSemaphoreRoutesFlatMapFunction.class
-com/jasmine/jasmine_core/StreamFunctions/AggregateFunctions/JNMedianAggregateFunction.class
 com/jasmine/jasmine_core/Models/JNSemaphoreControllerMessage.class
 com/jasmine/jasmine_core/Models/JNAggregabileCrossroads.class
 com/jasmine/jasmine_core/StreamFunctions/TimestampExtractors/JNMobileMessageTimestampExtractor.class
@@ -75,6 +74,7 @@ com/jasmine/jasmine_core/StreamFunctions/SinkFunctions/RedisKeySelectors/JNRedis
 com/jasmine/jasmine_core/Models/JNLeaderboard.class
 com/jasmine/jasmine_core/StreamFunctions/AggregateFunctions/JNAggregabileCrossroadsAggregateFunction.class
 com/jasmine/jasmine_core/Models/JNLeaderboard$ORDER.class
+com/jasmine/jasmine_core/StreamFunctions/ReduceFunctions/JNMedianReduceFunction.class
 com/jasmine/jasmine_core/StreamFunctions/TimestampExtractors/JNSemaphoreRouteLeaderboardTimestampExtractor.class
 com/jasmine/jasmine_core/StreamFunctions/MapFunctions/JNMobileRouteToSemaphoreRouteMapFunction.class
 com/jasmine/jasmine_core/StreamFunctions/FilterFunctions/JNSemaphoreMessagesDamagedFilter.class
@@ -91,6 +91,7 @@ com/jasmine/jasmine_core/Core/StreamEnvironments/JNRemoteStreamExecutionEnvironm
 com/jasmine/jasmine_core/StreamFunctions/SinkFunctions/JNSetRedisSinkFunction.class
 com/jasmine/jasmine_core/Utils/OverflowSafeAverage.class
 com/jasmine/jasmine_core/Models/JNLightBulbColor.class
+com/jasmine/jasmine_core/StreamFunctions/MapFunctions/JNMedianToDoubleMapFunction.class
 com/jasmine/jasmine_core/StreamFunctions/AggregateFunctions/JNBaseSemaphoreMessageToDetailedCrossroadsAggregateFunction.class
 com/jasmine/jasmine_core/StreamFunctions/SinkFunctions/JNJSONKafkaSinkFunction.class
 com/jasmine/jasmine_core/StreamFunctions/MapFunctions/JNAggregabileCrossroadsToCrossroadsMapFunction.class

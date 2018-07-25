@@ -12,6 +12,7 @@
 /Users/andreasilvi/Documents/Development/jasmine/jasmine_core/src/main/java/com/jasmine/jasmine_core/Utils/Decorable.java
 /Users/andreasilvi/Documents/Development/jasmine/jasmine_core/src/main/java/com/jasmine/jasmine_core/Core/Monitor/JNMonitor.java
 /Users/andreasilvi/Documents/Development/jasmine/jasmine_core/src/main/java/com/jasmine/jasmine_core/Models/JNSemaphoreRouteLeaderboard.java
+/Users/andreasilvi/Documents/Development/jasmine/jasmine_core/src/main/java/com/jasmine/jasmine_core/StreamFunctions/MapFunctions/JNMedianToDoubleMapFunction.java
 /Users/andreasilvi/Documents/Development/jasmine/jasmine_core/src/main/java/com/jasmine/jasmine_core/Connectors/JNClusterRedisConnector.java
 /Users/andreasilvi/Documents/Development/jasmine/jasmine_core/src/main/java/com/jasmine/jasmine_core/Utils/OverflowSafeAverage.java
 /Users/andreasilvi/Documents/Development/jasmine/jasmine_core/src/main/java/com/jasmine/jasmine_core/StreamFunctions/AggregateFunctions/JNTopSemaphoreRouteLeaderboardAggregateFunction.java
@@ -46,6 +47,7 @@
 /Users/andreasilvi/Documents/Development/jasmine/jasmine_core/src/main/java/com/jasmine/jasmine_core/StreamFunctions/SinkFunctions/JsonPrintSinkFunction.java
 /Users/andreasilvi/Documents/Development/jasmine/jasmine_core/src/main/java/com/jasmine/jasmine_core/StreamFunctions/TimestampExtractors/JNCrossroadsLeaderboardTimestampExtractor.java
 /Users/andreasilvi/Documents/Development/jasmine/jasmine_core/src/main/java/com/jasmine/jasmine_core/StreamFunctions/SinkFunctions/JNSetRedisSinkFunction.java
+/Users/andreasilvi/Documents/Development/jasmine/jasmine_core/src/main/java/com/jasmine/jasmine_core/StreamFunctions/ReduceFunctions/JNMedianReduceFunction.java
 /Users/andreasilvi/Documents/Development/jasmine/jasmine_core/src/main/java/com/jasmine/jasmine_core/Core/Monitor/JNMobileMonitor.java
 /Users/andreasilvi/Documents/Development/jasmine/jasmine_core/src/main/java/com/jasmine/jasmine_core/Models/JNBaseSemaphoreMessage.java
 /Users/andreasilvi/Documents/Development/jasmine/jasmine_core/src/main/java/com/jasmine/jasmine_core/StreamFunctions/MapFunctions/JNAggregabileCrossroadsToCrossroadsMapFunction.java
@@ -70,7 +72,6 @@
 /Users/andreasilvi/Documents/Development/jasmine/jasmine_core/src/main/java/com/jasmine/jasmine_core/StreamFunctions/TimestampExtractors/JNMobileMessageTimestampExtractor.java
 /Users/andreasilvi/Documents/Development/jasmine/jasmine_core/src/main/java/com/jasmine/jasmine_core/StreamFunctions/TimestampExtractors/JNSemaphoreRouteTimestampExtractor.java
 /Users/andreasilvi/Documents/Development/jasmine/jasmine_core/src/main/java/com/jasmine/jasmine_core/StreamFunctions/KeySelectors/JNBaseSemaphoreMessageCrossroadsIdKeySelector.java
-/Users/andreasilvi/Documents/Development/jasmine/jasmine_core/src/main/java/com/jasmine/jasmine_core/StreamFunctions/AggregateFunctions/JNMedianAggregateFunction.java
 /Users/andreasilvi/Documents/Development/jasmine/jasmine_core/src/main/java/com/jasmine/jasmine_core/Utils/JSONSerializable.java
 /Users/andreasilvi/Documents/Development/jasmine/jasmine_core/src/main/java/com/jasmine/jasmine_core/StreamFunctions/ReduceFunctions/JNLeaderboardReduceFunction.java
 /Users/andreasilvi/Documents/Development/jasmine/jasmine_core/src/main/java/com/jasmine/jasmine_core/Models/JNCrossroadsLeaderboard.java
