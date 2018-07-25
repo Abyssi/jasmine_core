@@ -105,7 +105,6 @@ if [ "$1" == $CREATE_COMMAND ]; then
 
   echo "Created EBS Volume with ID: $VOLUME_ID "
 
-
   echo 'Creating AWS Cluster'
   kops create cluster \
       --topology public \

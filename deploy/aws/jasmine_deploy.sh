@@ -1,3 +1,5 @@
+cd "$(dirname "$0")"
+
 function yes_no {
 
   sleep 5s
