@@ -3,6 +3,8 @@ com/jasmine/jasmine_core/StreamFunctions/MapFunctions/JNSemaphoreMessageToBaseSe
 com/jasmine/jasmine_core/Core/Controller/JNController$1.class
 com/jasmine/jasmine_core/StreamFunctions/TimestampExtractors/JNCrossroadsLeaderboardTimestampExtractor.class
 com/jasmine/jasmine_core/StreamFunctions/FlatMapFunctions/JNBiggerThanMedianCrossroadsCoFlatMapFunction.class
+com/jasmine/jasmine_core/StreamFunctions/MapFunctions/JNObjectToRandomIdentifiedMapFunction.class
+com/jasmine/jasmine_core/StreamFunctions/KeySelectors/JNIdentifiedIdKeySelector.class
 com/jasmine/jasmine_core/StreamFunctions/KeySelectors/JNSemaphoreRouteIdKeySelector.class
 com/jasmine/jasmine_core/Core/StreamEnvironments/JNLocalStreamExecutionEnvironment.class
 com/jasmine/jasmine_core/Utils/MemorySafeMedian.class
@@ -14,10 +16,13 @@ com/jasmine/jasmine_core/Models/JNCellsContainer.class
 com/jasmine/jasmine_core/Connectors/Abstracts/JNKafkaConnector.class
 com/jasmine/jasmine_core/Models/JNDamagedSemaphore.class
 com/jasmine/jasmine_core/StreamFunctions/SinkFunctions/RedisKeySelectors/JNRedisDamagedSemaphoreCompoundIdKeySelector.class
+com/jasmine/jasmine_core/StreamFunctions/AggregateFunctions/IdentifiedInputAggregateFunction.class
 com/jasmine/jasmine_core/StreamFunctions/AggregateFunctions/JNBaseSemaphoreMessageToCrossroadsAggregateFunction.class
 com/jasmine/jasmine_core/Models/JNCell.class
 com/jasmine/jasmine_core/StreamFunctions/MapFunctions/JNLeaderboardToListMapFunction.class
+com/jasmine/jasmine_core/Utils/Decorable.class
 com/jasmine/jasmine_core/StreamFunctions/AggregateFunctions/JNCrossroadsMedianAggregateFunction.class
+com/jasmine/jasmine_core/StreamFunctions/ReduceFunctions/JNLeaderboardReduceFunction.class
 com/jasmine/jasmine_core/Connectors/JNSemaphoreConnector.class
 com/jasmine/jasmine_core/StreamFunctions/KeySelectors/JNBaseSemaphoreMessageCrossroadsIdKeySelector.class
 com/jasmine/jasmine_core/Models/JNSemaphorePing.class
@@ -25,13 +30,13 @@ com/jasmine/jasmine_core/Core/StreamEnvironments/JNStreamExecutionEnvironment.cl
 com/jasmine/jasmine_core/Core/Controller/JNController.class
 com/jasmine/jasmine_core/Models/JNDetailedCrossroads.class
 com/jasmine/jasmine_core/StreamFunctions/SinkFunctions/JNHSetRedisSinkFunction.class
+com/jasmine/jasmine_core/Utils/Identified.class
 com/jasmine/jasmine_core/Models/JNCrossroads.class
 com/jasmine/jasmine_core/Models/JNBoxContainer.class
 com/jasmine/jasmine_core/StreamFunctions/SinkFunctions/JsonPrintSinkFunction.class
 com/jasmine/jasmine_core/StreamFunctions/TimestampExtractors/Abstracts/IgnoringViolationAscendingTimestampExtractor.class
 com/jasmine/jasmine_core/Core/Monitor/JNMonitor$1.class
 com/jasmine/jasmine_core/StreamFunctions/SinkFunctions/RedisKeySelectors/JNRedisKeySelector.class
-com/jasmine/jasmine_core/StreamFunctions/AggregateFunctions/JNLeaderboardAggregateFunction.class
 com/jasmine/jasmine_core/Models/JNSemaphoreRouteLeaderboard.class
 com/jasmine/jasmine_core/Models/JNSemaphoreRoute.class
 com/jasmine/jasmine_core/StreamFunctions/AggregateFunctions/JNSemaphoreRouteAggregateFunction.class

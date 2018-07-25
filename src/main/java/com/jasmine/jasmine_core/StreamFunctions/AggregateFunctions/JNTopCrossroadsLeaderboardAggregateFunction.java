@@ -3,9 +3,8 @@ package com.jasmine.jasmine_core.StreamFunctions.AggregateFunctions;
 import com.jasmine.jasmine_core.Models.JNCrossroads;
 import com.jasmine.jasmine_core.Models.JNCrossroadsLeaderboard;
 import com.jasmine.jasmine_core.Models.JNLeaderboard;
-import org.apache.flink.api.common.functions.AggregateFunction;
 
-public class JNTopCrossroadsLeaderboardAggregateFunction implements AggregateFunction<JNCrossroads, JNCrossroadsLeaderboard, JNCrossroadsLeaderboard> {
+public class JNTopCrossroadsLeaderboardAggregateFunction extends IdentifiedInputAggregateFunction<JNCrossroads, JNCrossroadsLeaderboard, JNCrossroadsLeaderboard> {
     private static final long serialVersionUID = 1L;
 
     private int maxSize;
@@ -20,7 +19,7 @@ public class JNTopCrossroadsLeaderboardAggregateFunction implements AggregateFun
     }
 
     @Override
-    public JNCrossroadsLeaderboard add(JNCrossroads crossroads, JNCrossroadsLeaderboard crossroadsLeaderboard) {
+    public JNCrossroadsLeaderboard _add(JNCrossroads crossroads, JNCrossroadsLeaderboard crossroadsLeaderboard) {
         crossroadsLeaderboard.add(crossroads);
         return crossroadsLeaderboard;
     }

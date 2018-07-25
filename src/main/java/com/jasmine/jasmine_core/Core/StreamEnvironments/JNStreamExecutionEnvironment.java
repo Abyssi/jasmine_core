@@ -17,9 +17,11 @@ public class JNStreamExecutionEnvironment {
         if (!FlinkParameters.getParameters().getBoolean("flink.operation-chaining.enabled", false))
             environment.disableOperatorChaining();
 
-        if (FlinkParameters.getParameters().getInt("flink.checkpoint.millis", 0) != 0)
+        if (FlinkParameters.getParameters().getInt("flink.checkpoint.millis", 0) != 0) {
             environment.enableCheckpointing(FlinkParameters.getParameters().getInt("flink.checkpoint.millis", 60000));
-
+            environment.getCheckpointConfig().setMaxConcurrentCheckpoints(1);
+            environment.getCheckpointConfig().setFailOnCheckpointingErrors(false);
+        }
         if (FlinkParameters.getParameters().getInt("flink.latency.millis", 0) != 0)
             environment.getConfig().setLatencyTrackingInterval(FlinkParameters.getParameters().getInt("flink.latency.millis", 5));
 

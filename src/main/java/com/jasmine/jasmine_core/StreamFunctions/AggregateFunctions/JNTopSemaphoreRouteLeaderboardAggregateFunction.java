@@ -3,9 +3,8 @@ package com.jasmine.jasmine_core.StreamFunctions.AggregateFunctions;
 import com.jasmine.jasmine_core.Models.JNLeaderboard;
 import com.jasmine.jasmine_core.Models.JNSemaphoreRoute;
 import com.jasmine.jasmine_core.Models.JNSemaphoreRouteLeaderboard;
-import org.apache.flink.api.common.functions.AggregateFunction;
 
-public class JNTopSemaphoreRouteLeaderboardAggregateFunction implements AggregateFunction<JNSemaphoreRoute, JNSemaphoreRouteLeaderboard, JNSemaphoreRouteLeaderboard> {
+public class JNTopSemaphoreRouteLeaderboardAggregateFunction extends IdentifiedInputAggregateFunction<JNSemaphoreRoute, JNSemaphoreRouteLeaderboard, JNSemaphoreRouteLeaderboard> {
     private static final long serialVersionUID = 1L;
 
     private int maxSize;
@@ -20,7 +19,7 @@ public class JNTopSemaphoreRouteLeaderboardAggregateFunction implements Aggregat
     }
 
     @Override
-    public JNSemaphoreRouteLeaderboard add(JNSemaphoreRoute semaphoreRoute, JNSemaphoreRouteLeaderboard semaphoreLeaderboard) {
+    public JNSemaphoreRouteLeaderboard _add(JNSemaphoreRoute semaphoreRoute, JNSemaphoreRouteLeaderboard semaphoreLeaderboard) {
         semaphoreLeaderboard.add(semaphoreRoute);
         return semaphoreLeaderboard;
     }
