@@ -16,6 +16,6 @@ public class JNObjectToRandomIdentifiedMapFunction<T> implements MapFunction<T, 
 
     @Override
     public Identified<T> map(T t) {
-        return new Identified<>(t, String.valueOf(random.nextInt(max)));
+        return new Identified<>(t, String.valueOf(random.nextInt(max + 1)));
     }
 }

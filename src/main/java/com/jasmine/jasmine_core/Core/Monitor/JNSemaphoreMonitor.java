@@ -19,6 +19,7 @@ import com.jasmine.jasmine_core.Utils.FlinkParameters;
 import com.jasmine.jasmine_core.Utils.Identified;
 import com.jasmine.jasmine_core.Utils.MetricsMapper;
 import org.apache.flink.streaming.api.datastream.*;
+import org.apache.flink.streaming.api.windowing.assigners.EventTimeSessionWindows;
 import org.apache.flink.streaming.api.windowing.time.Time;
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 
@@ -60,7 +61,7 @@ public class JNSemaphoreMonitor extends JNSemaphoreConnector {
         for (Time[] timeWindow : timeWindows) {
             DataStream<JNCrossroads> crossroadsStream;
             if (FlinkParameters.getParameters().getBoolean("use.window.chaining", false)) {
-                if (currentAggregabileCrossroadsStream == null || FlinkParameters.getParameters().getBoolean("use.window.chaining", false)) {
+                if (currentAggregabileCrossroadsStream == null) {
                     // Assign the pre-aggregation window
                     WindowedStream<JNBaseSemaphoreMessage, String, TimeWindow> windowedKeyedTimestampedBaseSemaphoreMessageStream = timeWindow[1].toMilliseconds() == 0 ? keyedTimestampedBaseSemaphoreMessageStream.timeWindow(timeWindow[0]) : keyedTimestampedBaseSemaphoreMessageStream.timeWindow(timeWindow[0], timeWindow[1]);
                     // Reduce keyed semaphore message to crossroads
@@ -96,6 +97,8 @@ public class JNSemaphoreMonitor extends JNSemaphoreConnector {
             DataStream<JNCrossroadsLeaderboard> timestampedPartialTop10CrossroadsLeaderboardStream = MetricsMapper.wrap(partialTop10CrossroadsLeaderboardStream.assignTimestampsAndWatermarks(new JNCrossroadsLeaderboardTimestampExtractor()).setParallelism(1).name("JNCrossroadsLeaderboardTimestampExtractor"));
             // Assign sliding windows
             AllWindowedStream<JNCrossroadsLeaderboard, TimeWindow> windowedTimestampedPartialTop10CrossroadsLeaderboardStream = timeWindow[1].toMilliseconds() == 0 ? timestampedPartialTop10CrossroadsLeaderboardStream.timeWindowAll(timeWindow[0]) : timestampedPartialTop10CrossroadsLeaderboardStream.timeWindowAll(timeWindow[0], timeWindow[1]);
+            //timestampedPartialTop10CrossroadsLeaderboardStream.windowAll(EventTimeSessionWindows.withGap(Time.milliseconds((long) (timeWindow[0].toMilliseconds()*0.1)))).allowedLateness(Time.seconds(4));
+
             // Compute final top 10
             DataStream<JNCrossroadsLeaderboard> top10CrossroadsLeaderboardStream = MetricsMapper.wrap(windowedTimestampedPartialTop10CrossroadsLeaderboardStream.reduce(new JNLeaderboardReduceFunction()).setParallelism(1).name("JNLeaderboardReduceFunction"));
             // Filter if is equal to last value
@@ -113,6 +116,7 @@ public class JNSemaphoreMonitor extends JNSemaphoreConnector {
             DataStream<JNMedian> crossroadsMedianStructStream = MetricsMapper.wrap(windowedTimestampedPartialCrossroadsMedianDataStream.reduce(new JNMedianReduceFunction()).setParallelism(1).name("JNMedianReduceFunction"));
             // Map to a double
             DataStream<Double> crossroadsMedianStream = MetricsMapper.wrap(crossroadsMedianStructStream.map(new JNMedianToDoubleMapFunction()).name("JNMedianToDoubleMapFunction"));
+            crossroadsMedianStream.print();
 
             // Connect crossroads stream with median stream
             ConnectedStreams<Double, JNCrossroads> medianAndCrossroadsConnectedStream = crossroadsMedianStream.connect(crossroadsStream);

@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83fc3187-da1c-4d74-a7aa-546abb6d5180" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/MapFunctions/JNMedianToDoubleMapFunction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/ReduceFunctions/JNMedianReduceFunction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/Core/Monitor/JNSemaphoreMonitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/Core/Monitor/JNSemaphoreMonitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/AggregateFunctions/JNMedianAggregateFunction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/Models/JNMedian.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/Models/JNMedian.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/AggregateFunctions/JNCrossroadsMedianAggregateFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/AggregateFunctions/JNCrossroadsMedianAggregateFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/MapFunctions/JNObjectToRandomIdentifiedMapFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/MapFunctions/JNObjectToRandomIdentifiedMapFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,8 +24,8 @@
       <file leaf-file-name="application.properties" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-534">
-              <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+            <state relative-caret-position="150">
+              <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -30,29 +33,35 @@
       <file leaf-file-name="JNSemaphoreMonitor.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/Core/Monitor/JNSemaphoreMonitor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="94" column="46" lean-forward="true" selection-start-line="94" selection-start-column="46" selection-end-line="94" selection-end-column="46" />
+            <state relative-caret-position="214">
+              <caret line="94" column="106" selection-start-line="94" selection-start-column="106" selection-end-line="94" selection-end-column="106" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JNMedianToDoubleMapFunction.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/MapFunctions/JNMedianToDoubleMapFunction.java">
+      <file leaf-file-name="log4j.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="JNCrossroadsMedianAggregateFunction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/AggregateFunctions/JNCrossroadsMedianAggregateFunction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+            <state relative-caret-position="300">
+              <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JNMedian.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/Models/JNMedian.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#213#214#0" expanded="true" />
+                <element signature="e#255#256#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JNLeaderboardToListMapFunction.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/MapFunctions/JNLeaderboardToListMapFunction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="14" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -60,20 +69,8 @@
       <file leaf-file-name="JNMedianReduceFunction.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/ReduceFunctions/JNMedianReduceFunction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JNLeaderboardReduceFunction.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/ReduceFunctions/JNLeaderboardReduceFunction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="40" lean-forward="true" selection-start-line="5" selection-start-column="40" selection-end-line="11" selection-end-column="1" />
+            <state relative-caret-position="105">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -84,17 +81,8 @@
       <file leaf-file-name="JNNotChangedFilter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/FilterFunctions/JNNotChangedFilter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JNMobileMonitor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/Core/Monitor/JNMobileMonitor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="82" selection-start-line="82" selection-end-line="82" />
+            <state relative-caret-position="150">
+              <caret line="10" column="49" selection-start-line="10" selection-start-column="49" selection-end-line="10" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -102,8 +90,8 @@
       <file leaf-file-name="JNMonitor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/Core/Monitor/JNMonitor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+            <state relative-caret-position="348">
+              <caret line="68" column="52" selection-start-line="68" selection-start-column="52" selection-end-line="68" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -122,6 +110,8 @@
       <find>[top10</find>
       <find>top10CrossroadsStream-6</find>
       <find>kafka.route.window</find>
+      <find>asdasdasdas</find>
+      <find>njjnasjnajsnd</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -134,22 +124,25 @@
         <option value="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/Utils/Decorable.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/Utils/Identified.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/AggregateFunctions/JNIdentifiedAggregateFunction.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/MapFunctions/JNObjectToRandomIdentifiedMapFunction.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/KeySelectors/NJIdentifiedIdKeySelector.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/KeySelectors/JNIdentifiedIdKeySelector.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/AggregateFunctions/JNTopCrossroadsLeaderboardAggregateFunction.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/AggregateFunctions/DecoratedInputAggregateFunction.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/ReduceFunctions/JNLeaderboardReduceFunction.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/AggregateFunctions/JNCrossroadsMedianAggregateFunction.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/AggregateFunctions/IdentifiedInputAggregateFunction.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/AggregateFunctions/JNTopSemaphoreRouteLeaderboardAggregateFunction.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/Core/StreamEnvironments/JNLocalStreamExecutionEnvironment.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/Core/StreamEnvironments/JNRemoteStreamExecutionEnvironment.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/Core/StreamEnvironments/JNStreamExecutionEnvironment.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/Core/Monitor/JNMobileMonitor.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/ReduceFunctions/JNMedianReduceFunction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/Models/JNMedian.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/AggregateFunctions/JNCrossroadsMedianAggregateFunction.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/MapFunctions/JNMedianToDoubleMapFunction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/ReduceFunctions/JNMedianReduceFunction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/FilterFunctions/JNNotChangedFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/MapFunctions/JNObjectToRandomIdentifiedMapFunction.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/Core/Monitor/JNMonitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/Core/Monitor/JNSemaphoreMonitor.java" />
       </list>
     </option>
@@ -178,7 +171,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -236,45 +228,6 @@
               <item name="jasmine_core" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="jasmine_core" type="462c0819:PsiDirectoryNode" />
-              <item name="StreamFunctions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jasmine_core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jasmine_core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="jasmine_core" type="462c0819:PsiDirectoryNode" />
-              <item name="StreamFunctions" type="462c0819:PsiDirectoryNode" />
-              <item name="AggregateFunctions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jasmine_core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jasmine_core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="jasmine_core" type="462c0819:PsiDirectoryNode" />
-              <item name="StreamFunctions" type="462c0819:PsiDirectoryNode" />
-              <item name="MapFunctions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jasmine_core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jasmine_core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="jasmine_core" type="462c0819:PsiDirectoryNode" />
-              <item name="StreamFunctions" type="462c0819:PsiDirectoryNode" />
-              <item name="ReduceFunctions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jasmine_core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jasmine_core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -282,6 +235,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -392,7 +346,8 @@
       <workItem from="1531503985057" duration="983000" />
       <workItem from="1531511194975" duration="1636000" />
       <workItem from="1532534930931" duration="5208000" />
-      <workItem from="1532552793478" duration="671000" />
+      <workItem from="1532552793478" duration="4599000" />
+      <workItem from="1532559104228" duration="480000" />
     </task>
     <task id="LOCAL-00001" summary="Added docs">
       <created>1531511705530</created>
@@ -405,7 +360,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9081000" />
+    <option name="totallyTimeSpent" value="13489000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -413,33 +368,33 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32965517" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" weight="0.32956383" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32827586" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32827586" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32875606" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33360258" />
       <window_info anchor="bottom" id="Statistic" order="7" weight="0.33014354" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32965517" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32965517" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32965517" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -453,22 +408,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Added docs" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/MapFunctions/JNSemaphoreMessageToJNDamagedSemaphoreMapFunction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="11" column="62" lean-forward="true" selection-start-line="11" selection-start-column="62" selection-end-line="12" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/KeySelectors/JNRandomIdentifiedIdKeySelector.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/Utils/FlinkParameters.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/Models/Decorable.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/Models/RandomIdentified.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/MapFunctions/JNRandomIdentifiedToObjectMapFunction.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/Core/Controller/JNController.java">
@@ -503,10 +442,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="18" column="40" lean-forward="true" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
-          <folding>
-            <element signature="e#686#687#0" expanded="true" />
-            <element signature="e#732#733#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -591,13 +526,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/MapFunctions/JNObjectToRandomIdentifiedMapFunction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/AggregateFunctions/JNIdentifiedAggregateFunction.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/Utils/Identified.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -627,24 +555,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/AggregateFunctions/JNCrossroadsMedianAggregateFunction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="89" selection-start-line="5" selection-start-column="57" selection-end-line="5" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/Models/JNSemaphoreRoute.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/AggregateFunctions/JNTopCrossroadsLeaderboardAggregateFunction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="97" selection-start-line="6" selection-start-column="65" selection-end-line="6" selection-end-column="97" />
         </state>
       </provider>
     </entry>
@@ -684,13 +598,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/FilterFunctions/JNNotChangedFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/Core/Monitor/JNMobileMonitor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="720">
@@ -698,30 +605,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/AggregateFunctions/JNMedianAggregateFunction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/ReduceFunctions/JNLeaderboardReduceFunction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="40" lean-forward="true" selection-start-line="5" selection-start-column="40" selection-end-line="11" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/Core/Monitor/JNMonitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/AggregateFunctions/JNMedianAggregateFunction.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/MapFunctions/JNLeaderboardToListMapFunction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -729,37 +613,104 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/ReduceFunctions/JNMedianReduceFunction.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/ReduceFunctions/JNLeaderboardReduceFunction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/AggregateFunctions/JNTopCrossroadsLeaderboardAggregateFunction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-534">
-          <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+        <state relative-caret-position="34">
+          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/TimestampExtractors/JNMedianTimestampExtractor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/MapFunctions/JNMedianToDoubleMapFunction.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/FilterFunctions/JNNotChangedFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+          <caret line="10" column="49" selection-start-line="10" selection-start-column="49" selection-end-line="10" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/Models/JNMedian.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+          <folding>
+            <element signature="e#213#214#0" expanded="true" />
+            <element signature="e#255#256#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/ReduceFunctions/JNMedianReduceFunction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/AggregateFunctions/JNCrossroadsMedianAggregateFunction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/flink/flink-streaming-java_2.11/1.5.0/flink-streaming-java_2.11-1.5.0.jar!/org/apache/flink/streaming/api/datastream/DataStream.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="278" column="44" selection-start-line="278" selection-start-column="44" selection-end-line="278" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/MapFunctions/JNObjectToRandomIdentifiedMapFunction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="18" column="72" selection-start-line="18" selection-start-column="72" selection-end-line="18" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/Core/Monitor/JNMonitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="68" column="52" selection-start-line="68" selection-start-column="52" selection-end-line="68" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/Core/Monitor/JNSemaphoreMonitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="94" column="46" lean-forward="true" selection-start-line="94" selection-start-column="46" selection-end-line="94" selection-end-column="46" />
+        <state relative-caret-position="214">
+          <caret line="94" column="106" selection-start-line="94" selection-start-column="106" selection-end-line="94" selection-end-column="106" />
         </state>
       </provider>
     </entry>
