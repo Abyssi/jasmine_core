@@ -19,8 +19,6 @@ import com.jasmine.jasmine_core.StreamFunctions.MapFunctions.JNObjectToRandomIde
 import com.jasmine.jasmine_core.StreamFunctions.ReduceFunctions.JNLeaderboardReduceFunction;
 import com.jasmine.jasmine_core.StreamFunctions.SinkFunctions.JsonPrintSinkFunction;
 import com.jasmine.jasmine_core.StreamFunctions.TimestampExtractors.JNMobileMessageTimestampExtractor;
-import com.jasmine.jasmine_core.StreamFunctions.TimestampExtractors.JNSemaphoreRouteLeaderboardTimestampExtractor;
-import com.jasmine.jasmine_core.StreamFunctions.TimestampExtractors.JNSemaphoreRouteTimestampExtractor;
 import com.jasmine.jasmine_core.Utils.FlinkParameters;
 import com.jasmine.jasmine_core.Utils.Identified;
 import com.jasmine.jasmine_core.Utils.MetricsMapper;
@@ -57,27 +55,21 @@ public class JNMobileMonitor extends JNMobileConnector {
         DataStream<JNSemaphoreRoute> semaphoreRouteStream = MetricsMapper.wrap(mobileRouteStream.map(new JNMobileRouteToSemaphoreRouteMapFunction()).name("JNMobileRouteToSemaphoreRouteMapFunction"));
         // Split in all sub semaphoreRoutes
         DataStream<JNSemaphoreRoute> subSemaphoreRouteStream = MetricsMapper.wrap(semaphoreRouteStream.flatMap(new JNSemaphoreRouteSubSemaphoreRoutesFlatMapFunction()).name("JNSemaphoreRouteSubSemaphoreRoutesFlatMapFunction"));
-        // Assign timestamps to routes
-        DataStream<JNSemaphoreRoute> timestampedSubSemaphoreRouteStream = MetricsMapper.wrap(subSemaphoreRouteStream.assignTimestampsAndWatermarks(new JNSemaphoreRouteTimestampExtractor()).name("JNSemaphoreRouteTimestampExtractor"));
         // Key by route id
-        KeyedStream<JNSemaphoreRoute, String> keyedTimestampedSubSemaphoreRouteStream = timestampedSubSemaphoreRouteStream.keyBy(new JNSemaphoreRouteIdKeySelector());
-        // Assign sliding window
+        KeyedStream<JNSemaphoreRoute, String> keyedTimestampedSubSemaphoreRouteStream = subSemaphoreRouteStream.keyBy(new JNSemaphoreRouteIdKeySelector());
+        // Assign time window
         WindowedStream<JNSemaphoreRoute, String, TimeWindow> windowedKeyedTimestampedSubSemaphoreRouteStream = timeWindow[1].toMilliseconds() == 0 ? keyedTimestampedSubSemaphoreRouteStream.timeWindow(timeWindow[0]) : keyedTimestampedSubSemaphoreRouteStream.timeWindow(timeWindow[0], timeWindow[1]);
         // Reduce to single route
         DataStream<JNSemaphoreRoute> aggregatedSemaphoreRouteStream = MetricsMapper.wrap(windowedKeyedTimestampedSubSemaphoreRouteStream.aggregate(new JNSemaphoreRouteAggregateFunction()).name("JNSemaphoreRouteAggregateFunction"));
-        // Assign timestamps to routes
-        DataStream<JNSemaphoreRoute> timestampedSemaphoreRouteStream = MetricsMapper.wrap(aggregatedSemaphoreRouteStream.assignTimestampsAndWatermarks(new JNSemaphoreRouteTimestampExtractor()).name("JNSemaphoreRouteTimestampExtractor"));
         // Key by random id
-        KeyedStream<Identified<JNSemaphoreRoute>, String> keyedTimestampedSemaphoreRouteStream = timestampedSemaphoreRouteStream.map(new JNObjectToRandomIdentifiedMapFunction(FlinkParameters.getParameters().getInt("flink.parallelism", 4))).name("JNObjectToRandomIdentifiedMapFunction").keyBy(new JNIdentifiedIdKeySelector());
-        // Assign sliding window
+        KeyedStream<Identified<JNSemaphoreRoute>, String> keyedTimestampedSemaphoreRouteStream = aggregatedSemaphoreRouteStream.map(new JNObjectToRandomIdentifiedMapFunction(FlinkParameters.getParameters().getInt("flink.parallelism", 4))).name("JNObjectToRandomIdentifiedMapFunction").keyBy(new JNIdentifiedIdKeySelector());
+        // Assign time window
         WindowedStream<Identified<JNSemaphoreRoute>, String, TimeWindow> windowedTimestampedSemaphoreRouteStream = timeWindow[1].toMilliseconds() == 0 ? keyedTimestampedSemaphoreRouteStream.timeWindow(timeWindow[0]) : keyedTimestampedSemaphoreRouteStream.timeWindow(timeWindow[0], timeWindow[1]);
 
         // Compute partial bottom 1 descending
         DataStream<JNSemaphoreRouteLeaderboard> partialTopSemaphoreRouteLeaderboardStream = MetricsMapper.wrap(windowedTimestampedSemaphoreRouteStream.aggregate(new JNTopSemaphoreRouteLeaderboardAggregateFunction(1)).name("JNTopSemaphoreRouteLeaderboardAggregateFunction(1)"));
-        // Assign timestamps to crossroads
-        DataStream<JNSemaphoreRouteLeaderboard> timestampedPartialTopSemaphoreRouteLeaderboardStream = MetricsMapper.wrap(partialTopSemaphoreRouteLeaderboardStream.assignTimestampsAndWatermarks(new JNSemaphoreRouteLeaderboardTimestampExtractor()).setParallelism(1).name("JNSemaphoreRouteLeaderboardTimestampExtractor"));
-        // Assign sliding windows
-        AllWindowedStream<JNSemaphoreRouteLeaderboard, TimeWindow> windowedTimestampedPartialTopSemaphoreRouteLeaderboardStream = timeWindow[1].toMilliseconds() == 0 ? timestampedPartialTopSemaphoreRouteLeaderboardStream.timeWindowAll(timeWindow[0]) : timestampedPartialTopSemaphoreRouteLeaderboardStream.timeWindowAll(timeWindow[0], timeWindow[1]);
+        // Assign time windows
+        AllWindowedStream<JNSemaphoreRouteLeaderboard, TimeWindow> windowedTimestampedPartialTopSemaphoreRouteLeaderboardStream = timeWindow[1].toMilliseconds() == 0 ? partialTopSemaphoreRouteLeaderboardStream.timeWindowAll(timeWindow[0]) : partialTopSemaphoreRouteLeaderboardStream.timeWindowAll(timeWindow[0], timeWindow[1]);
         // Compute final top 10
         DataStream<JNSemaphoreRouteLeaderboard> bottomSemaphoreRouteLeaderboardStream = MetricsMapper.wrap(windowedTimestampedPartialTopSemaphoreRouteLeaderboardStream.reduce(new JNLeaderboardReduceFunction()).setParallelism(1).name("JNLeaderboardReduceFunction"));
         // Filter if is equal to last value
