@@ -1,0 +1,42 @@
+version: '3.1'
+
+services:
+  zookeeper:
+    image: zookeeper
+    container_name: zookeeper
+    hostname: zookeeper
+    ports:
+      - 2181:2181
+    environment:
+      ZOO_MY_ID: 1
+
+  kafka:
+    image: kafka
+    container_name: kafka
+    hostname: localhost
+    depends_on:
+      - zookeeper
+    ports:
+      - 9092:9092
+    volumes:
+      - "./kafka/scripts/:/scripts/"
+    environment:
+      KAFKA_HOST: kafka
+      KAFKA_PORT: 9092
+      KAFKA_BROKER_ID: 1
+      ZOOKEEPER_CONNECT: zookeeper:2181
+      INITIAL_TOPICS: semaphore-topic
+
+  redis:
+    image: redis
+    container_name: redis
+    hostname: localhost
+    ports:
+      - 6379:6379
+
+  mongo:
+    image: mongo
+    container_name: mongo
+    hostname: localhost
+    ports:
+      - 27017:27017

@@ -3,15 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="83fc3187-da1c-4d74-a7aa-546abb6d5180" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/Core/Monitor/JNMobileMonitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/Core/Monitor/JNMobileMonitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/Core/Monitor/JNSemaphoreMonitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/Core/Monitor/JNSemaphoreMonitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/TimestampExtractors/JNAggregabileCrossroadsTimestampExtractor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/TimestampExtractors/JNCrossroadsLeaderboardTimestampExtractor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/TimestampExtractors/JNCrossroadsTimestampExtractor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/TimestampExtractors/JNMedianTimestampExtractor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/TimestampExtractors/JNSemaphoreRouteLeaderboardTimestampExtractor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/TimestampExtractors/JNSemaphoreRouteTimestampExtractor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,17 +17,8 @@
       <file leaf-file-name="application.properties" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="21" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JNSemaphoreMonitor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/Core/Monitor/JNSemaphoreMonitor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="99" selection-start-line="99" selection-end-line="99" />
+            <state relative-caret-position="240">
+              <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -117,7 +99,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -148,49 +129,13 @@
               <item name="jasmine_core" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="jasmine_core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jasmine_core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jasmine_core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="jasmine_core" type="462c0819:PsiDirectoryNode" />
-              <item name="Core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jasmine_core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jasmine_core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="jasmine_core" type="462c0819:PsiDirectoryNode" />
-              <item name="Core" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jasmine_core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jasmine_core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="jasmine_core" type="462c0819:PsiDirectoryNode" />
-              <item name="Core" type="462c0819:PsiDirectoryNode" />
-              <item name="Monitor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jasmine_core" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jasmine_core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -303,7 +248,8 @@
       <workItem from="1532534930931" duration="5208000" />
       <workItem from="1532552793478" duration="4599000" />
       <workItem from="1532559104228" duration="480000" />
-      <workItem from="1532680199073" duration="2128000" />
+      <workItem from="1532680199073" duration="2159000" />
+      <workItem from="1532721452523" duration="1042000" />
     </task>
     <task id="LOCAL-00001" summary="Added docs">
       <created>1531511705530</created>
@@ -316,10 +262,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15617000" />
+    <option name="totallyTimeSpent" value="16690000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -330,26 +277,26 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" weight="0.32956383" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32827586" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32827586" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29483038" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2996769" />
       <window_info anchor="bottom" id="Statistic" order="7" weight="0.33014354" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32965517" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32965517" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -386,13 +333,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/TimestampExtractors/JNCrossroadsLeaderboardTimestampExtractor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="18" column="40" lean-forward="true" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/TimestampExtractors/JNCrossroadsLeaderboardTimestampExtractor.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/ReduceFunction/JNLeaderboardReduceFunction.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/flink/flink-streaming-java_2.11/1.5.0/flink-streaming-java_2.11-1.5.0.jar!/org/apache/flink/streaming/api/windowing/triggers/PurgingTrigger.class">
       <provider selected="true" editor-type-id="text-editor">
@@ -554,13 +495,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/TimestampExtractors/JNMedianTimestampExtractor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/TimestampExtractors/JNMedianTimestampExtractor.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jasmine/jasmine_core/StreamFunctions/MapFunctions/JNMedianToDoubleMapFunction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -645,9 +580,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -667,8 +599,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="21" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+        <state relative-caret-position="240">
+          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
         </state>
       </provider>
     </entry>
