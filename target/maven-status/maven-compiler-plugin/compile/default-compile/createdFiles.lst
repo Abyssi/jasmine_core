@@ -1,7 +1,6 @@
 com/jasmine/jasmine_core/Models/JNLightBulbStatus.class
 com/jasmine/jasmine_core/StreamFunctions/MapFunctions/JNSemaphoreMessageToBaseSemaphoreMessageMapFunction.class
 com/jasmine/jasmine_core/Core/Controller/JNController$1.class
-com/jasmine/jasmine_core/StreamFunctions/TimestampExtractors/JNCrossroadsLeaderboardTimestampExtractor.class
 com/jasmine/jasmine_core/StreamFunctions/FlatMapFunctions/JNBiggerThanMedianCrossroadsCoFlatMapFunction.class
 com/jasmine/jasmine_core/StreamFunctions/MapFunctions/JNObjectToRandomIdentifiedMapFunction.class
 com/jasmine/jasmine_core/StreamFunctions/KeySelectors/JNIdentifiedIdKeySelector.class
@@ -63,11 +62,8 @@ com/jasmine/jasmine_core/StreamFunctions/MapFunctions/JNSemaphoreMessageToJNDama
 com/jasmine/jasmine_core/StreamFunctions/AggregateFunctions/JNTopCrossroadsLeaderboardAggregateFunction.class
 com/jasmine/jasmine_core/Utils/MemorySafeAverage.class
 com/jasmine/jasmine_core/Models/JNSemaphore.class
-com/jasmine/jasmine_core/StreamFunctions/TimestampExtractors/JNSemaphoreRouteTimestampExtractor.class
 com/jasmine/jasmine_core/StreamFunctions/SinkFunctions/RedisKeySelectors/JNRedisSemaphoreRouteIdKeySelector.class
 com/jasmine/jasmine_core/Utils/Nameable.class
-com/jasmine/jasmine_core/StreamFunctions/TimestampExtractors/JNAggregabileCrossroadsTimestampExtractor.class
-com/jasmine/jasmine_core/StreamFunctions/TimestampExtractors/JNCrossroadsTimestampExtractor.class
 com/jasmine/jasmine_core/Connectors/Messages/JNSemaphoreMessage.class
 com/jasmine/jasmine_core/Models/JNBaseSemaphoreMessage.class
 com/jasmine/jasmine_core/StreamFunctions/SinkFunctions/RedisKeySelectors/JNRedisMapper.class
@@ -75,7 +71,6 @@ com/jasmine/jasmine_core/Models/JNLeaderboard.class
 com/jasmine/jasmine_core/StreamFunctions/AggregateFunctions/JNAggregabileCrossroadsAggregateFunction.class
 com/jasmine/jasmine_core/Models/JNLeaderboard$ORDER.class
 com/jasmine/jasmine_core/StreamFunctions/ReduceFunctions/JNMedianReduceFunction.class
-com/jasmine/jasmine_core/StreamFunctions/TimestampExtractors/JNSemaphoreRouteLeaderboardTimestampExtractor.class
 com/jasmine/jasmine_core/StreamFunctions/MapFunctions/JNMobileRouteToSemaphoreRouteMapFunction.class
 com/jasmine/jasmine_core/StreamFunctions/FilterFunctions/JNSemaphoreMessagesDamagedFilter.class
 com/jasmine/jasmine_core/StreamFunctions/FilterFunctions/JNNotChangedFilter.class
@@ -83,7 +78,6 @@ com/jasmine/jasmine_core/StreamFunctions/AggregateFunctions/JNMobileMessageToMob
 com/jasmine/jasmine_core/StreamFunctions/AggregateFunctions/JNTopSemaphoreRouteLeaderboardAggregateFunction.class
 com/jasmine/jasmine_core/Models/JNCoordinates.class
 com/jasmine/jasmine_core/Utils/JSONSerializable.class
-com/jasmine/jasmine_core/StreamFunctions/TimestampExtractors/JNMedianTimestampExtractor.class
 com/jasmine/jasmine_core/Core/Monitor/JNMobileMonitor.class
 com/jasmine/jasmine_core/Core/Monitor/JNSemaphoreMonitor.class
 com/jasmine/jasmine_core/StreamFunctions/KeySelectors/JNAggregabileCrossroadsIdKeySelector.class

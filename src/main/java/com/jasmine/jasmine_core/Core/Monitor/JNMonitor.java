@@ -1,6 +1,10 @@
 package com.jasmine.jasmine_core.Core.Monitor;
 
 import com.jasmine.jasmine_core.Connectors.JNClusterRedisConnector;
+import com.jasmine.jasmine_core.Connectors.MQTT.JNJSONMQTTSink;
+import com.jasmine.jasmine_core.Connectors.MQTT.JNJSONMQTTSource;
+import com.jasmine.jasmine_core.Connectors.MQTT.MQTTConnector;
+import com.jasmine.jasmine_core.Connectors.MQTT.MQTTSource;
 import com.jasmine.jasmine_core.Core.StreamEnvironments.JNStreamExecutionEnvironment;
 import com.jasmine.jasmine_core.Models.JNCrossroads;
 import com.jasmine.jasmine_core.Models.JNDamagedSemaphore;
@@ -35,6 +39,10 @@ public class JNMonitor {
 
         JNClusterRedisConnector redisConnector = parameterTool.getBoolean("use.redis.sink", false) ? new JNClusterRedisConnector(Collections.singletonList(new InetSocketAddress(parameterTool.get("flink.redis.host", "localhost"), parameterTool.getInt("flink.redis.port", 6379)))) : null;
 
+        MQTTConnector mqttConnector = parameterTool.getBoolean("masaccio.integration.enabled", false) ? new MQTTConnector("tcp://" + parameterTool.get("masaccio.mqtt.broker.host", "193.206.52.98") + ":" + parameterTool.get("masaccio.mqtt.broker.port", "1883")) : null;
+
+        //new JNJSONMQTTSource<>(mqttConnector, "test", JNDamagedSemaphore.class);
+
         new JNSemaphoreMonitor(parameterTool.get("kafka.semaphore.topic", "semaphore-topic"), kafkaProperties) {
             @Override
             public void multipleOutput(DataStream<List<JNCrossroads>> top10CrossroadsStream, DataStream<JNCrossroads> biggerThanMedianCrossroadsStream, Time timeWindow) {
@@ -49,6 +57,10 @@ public class JNMonitor {
                     top10CrossroadsStream.addSink(new JNHSetRedisSinkFunction<>(redisConnector.getConfig(), "topCrossroads", new JNRedisStaticKeySelector(key))).name(String.format("JNSetRedisSinkFunction(topCrossroads-%s)", key));
                     biggerThanMedianCrossroadsStream.addSink(new JNHSetRedisSinkFunction<>(redisConnector.getConfig(), "biggerThanMedianCrossroads", new JNRedisCrossroadsIdKeySelector())).name("JNSetRedisSinkFunction(biggerThanMedianCrossroads-JNRedisCrossroadsIdKeySelector)");
                 }
+
+                // Send to mqtt
+                //if (parameterTool.getBoolean("masaccio.integration.enabled", false) && mqttConnector != null)
+                    //top10CrossroadsStream.addSink(new JNJSONMQTTSink<>(mqttConnector, parameterTool.get("masaccio.mqtt.average.vehicles.count.topic", "area/1/monitoring/luce_semaforo"), JNCrossroads.class));
             }
 
             @Override
@@ -60,6 +72,10 @@ public class JNMonitor {
 
                 if (parameterTool.getBoolean("use.redis.sink", false) && redisConnector != null)
                     damagedSemaphoreStream.addSink(new JNHSetRedisSinkFunction<>(redisConnector.getConfig(), "damagedSemaphore", new JNRedisDamagedSemaphoreCompoundIdKeySelector())).name("JNSetRedisSinkFunction(damagedSemaphore-JNRedisDamagedSemaphoreCompoundIdKeySelector)");
+
+                // Send to mqtt
+                if (parameterTool.getBoolean("masaccio.integration.enabled", false) && mqttConnector != null)
+                    damagedSemaphoreStream.addSink(new JNJSONMQTTSink<>(mqttConnector, parameterTool.get("masaccio.mqtt.average.vehicles.count.topic", "area/1/monitoring/luce_semaforo"), JNDamagedSemaphore.class));
 
             }
         }.addToEnvironment(environment);
