@@ -1,6 +1,7 @@
 package com.jasmine.jasmine_core.Connectors.MQTT;
 
 import org.apache.flink.api.common.serialization.DeserializationSchema;
+import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.functions.source.RichSourceFunction;
 
 public class MQTTSource<T> extends RichSourceFunction<T> {
@@ -21,6 +22,18 @@ public class MQTTSource<T> extends RichSourceFunction<T> {
 
     @Override
     public void cancel() {
+        connector.close();
+    }
+
+    @Override
+    public void open(Configuration parameters) throws Exception {
+        super.open(parameters);
+        connector.connect();
+    }
+
+    @Override
+    public void close() throws Exception {
+        super.close();
         connector.close();
     }
 }

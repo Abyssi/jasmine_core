@@ -4,7 +4,9 @@ import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 
-public class MQTTConnector {
+import java.io.Serializable;
+
+public class MQTTConnector implements Serializable {
 
     // Required
     private String url;
@@ -34,6 +36,12 @@ public class MQTTConnector {
         this.clientId = clientId;
         this.username = username;
         this.password = password;
+
+        try {
+            this.connect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void connect() throws Exception {

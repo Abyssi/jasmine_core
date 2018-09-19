@@ -1,11 +1,9 @@
 package com.jasmine.jasmine_core.Core.Monitor;
 
 import com.jasmine.jasmine_core.Connectors.JNClusterRedisConnector;
-import com.jasmine.jasmine_core.Connectors.MQTT.JNJSONMQTTSink;
-import com.jasmine.jasmine_core.Connectors.MQTT.JNJSONMQTTSource;
-import com.jasmine.jasmine_core.Connectors.MQTT.MQTTConnector;
-import com.jasmine.jasmine_core.Connectors.MQTT.MQTTSource;
+import com.jasmine.jasmine_core.Connectors.MQTT.*;
 import com.jasmine.jasmine_core.Core.StreamEnvironments.JNStreamExecutionEnvironment;
+import com.jasmine.jasmine_core.Intergation.*;
 import com.jasmine.jasmine_core.Models.JNCrossroads;
 import com.jasmine.jasmine_core.Models.JNDamagedSemaphore;
 import com.jasmine.jasmine_core.Models.JNSemaphoreRoute;
@@ -57,10 +55,13 @@ public class JNMonitor {
                     top10CrossroadsStream.addSink(new JNHSetRedisSinkFunction<>(redisConnector.getConfig(), "topCrossroads", new JNRedisStaticKeySelector(key))).name(String.format("JNSetRedisSinkFunction(topCrossroads-%s)", key));
                     biggerThanMedianCrossroadsStream.addSink(new JNHSetRedisSinkFunction<>(redisConnector.getConfig(), "biggerThanMedianCrossroads", new JNRedisCrossroadsIdKeySelector())).name("JNSetRedisSinkFunction(biggerThanMedianCrossroads-JNRedisCrossroadsIdKeySelector)");
                 }
+                biggerThanMedianCrossroadsStream.print();
 
                 // Send to mqtt
-                //if (parameterTool.getBoolean("masaccio.integration.enabled", false) && mqttConnector != null)
-                    //top10CrossroadsStream.addSink(new JNJSONMQTTSink<>(mqttConnector, parameterTool.get("masaccio.mqtt.average.vehicles.count.topic", "area/1/monitoring/luce_semaforo"), JNCrossroads.class));
+                if (parameterTool.getBoolean("masaccio.integration.enabled", false) && mqttConnector != null) {
+                    //top10CrossroadsStream.flatMap(new JNFirstElementInListExtractor<>()).map(new JNCrossroadsAverageSpeedToMasaccioMessageMapFunction()).addSink(new MQTTSink<>(mqttConnector, parameterTool.get("masaccio.mqtt.crossroads.average.speed.topic", "area/2/monitoring/velocita_avg"), new MasaccioSerializer()));
+                    //biggerThanMedianCrossroadsStream.map(new JNCrossroadsVehiclesCountToMasaccioMessageMapFunction()).addSink(new MQTTSink<>(mqttConnector, parameterTool.get("masaccio.mqtt.average.vehicles.count.topic", "area/2/monitoring/veicoli_avg"), new MasaccioSerializer()));
+                }
             }
 
             @Override
@@ -75,8 +76,8 @@ public class JNMonitor {
 
                 // Send to mqtt
                 if (parameterTool.getBoolean("masaccio.integration.enabled", false) && mqttConnector != null)
-                    damagedSemaphoreStream.addSink(new JNJSONMQTTSink<>(mqttConnector, parameterTool.get("masaccio.mqtt.average.vehicles.count.topic", "area/1/monitoring/luce_semaforo"), JNDamagedSemaphore.class));
-
+                    damagedSemaphoreStream.map(new JNDamagedSemaphoreToMasaccioMessageMapFunction()).addSink(new MQTTSink<>(mqttConnector, parameterTool.get("masaccio.mqtt.damaged.semaphores.topic", "area/2/monitoring/luce_semaforo"), new MasaccioSerializer()));
+                //damagedSemaphoreStream.addSink(new JNJSONMQTTSink<>(mqttConnector, parameterTool.get("masaccio.mqtt.average.vehicles.count.topic", "area/1/monitoring/luce_semaforo"), JNDamagedSemaphore.class));
             }
         }.addToEnvironment(environment);
 
