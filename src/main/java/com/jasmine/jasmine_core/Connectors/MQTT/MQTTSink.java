@@ -1,7 +1,6 @@
 package com.jasmine.jasmine_core.Connectors.MQTT;
 
 import org.apache.flink.api.common.serialization.SerializationSchema;
-import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.functions.sink.RichSinkFunction;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 
@@ -18,18 +17,8 @@ public class MQTTSink<T> extends RichSinkFunction<T> {
 
     @Override
     public void invoke(T value, Context context) throws Exception {
+        if (connector.getClient() == null || !connector.getClient().isConnected())
+            connector.connect();
         connector.getClient().publish(topic, new MqttMessage(valueSerializer.serialize(value)));
-    }
-
-    @Override
-    public void open(Configuration parameters) throws Exception {
-        super.open(parameters);
-        //connector.connect();
-    }
-
-    @Override
-    public void close() throws Exception {
-        super.close();
-        //connector.close();
     }
 }

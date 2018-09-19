@@ -8,6 +8,6 @@ public class MasaccioSerializer implements SerializationSchema<MasaccioMessage> 
 
     @Override
     public byte[] serialize(MasaccioMessage msg) {
-        return (msg.getId()+msg.getKindId()+"@"+msg.getValue()+String.valueOf(msg.getInstant().getEpochSecond())).getBytes();
+        return (msg.getId()+msg.getKindId()+"@"+msg.getValue()+"|"+String.valueOf(msg.getInstant().getEpochSecond())).getBytes();
     }
 }

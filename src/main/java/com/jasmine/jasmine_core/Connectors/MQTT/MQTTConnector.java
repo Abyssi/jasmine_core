@@ -46,8 +46,6 @@ public class MQTTConnector implements Serializable {
 
     public void connect() throws Exception {
         MqttConnectOptions connectOptions = new MqttConnectOptions();
-        connectOptions.setCleanSession(true);
-        connectOptions.setAutomaticReconnect(true);
 
         if (username != null) connectOptions.setUserName(username);
         if (password != null) connectOptions.setPassword(password.toCharArray());
