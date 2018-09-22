@@ -1,9 +1,16 @@
 package com.jasmine.jasmine_core.Core.Monitor;
 
 import com.jasmine.jasmine_core.Connectors.JNClusterRedisConnector;
-import com.jasmine.jasmine_core.Connectors.MQTT.*;
+import com.jasmine.jasmine_core.Connectors.MQTT.JNJSONMQTTSink;
+import com.jasmine.jasmine_core.Connectors.MQTT.JNJSONMQTTSource;
+import com.jasmine.jasmine_core.Connectors.MQTT.MQTTConnector;
+import com.jasmine.jasmine_core.Connectors.MQTT.MQTTSink;
 import com.jasmine.jasmine_core.Core.StreamEnvironments.JNStreamExecutionEnvironment;
-import com.jasmine.jasmine_core.Intergation.*;
+import com.jasmine.jasmine_core.Intergation.FSCA.FSCAMonitor;
+import com.jasmine.jasmine_core.Intergation.FSCA.FSCATest;
+import com.jasmine.jasmine_core.Intergation.FSCA.FSCAWrappedCoordinates;
+import com.jasmine.jasmine_core.Intergation.FSCA.JNSemaphoreRouteListToFSCAWrappedCoordinatesFlatMapFunction;
+import com.jasmine.jasmine_core.Intergation.Masaccio.*;
 import com.jasmine.jasmine_core.Models.JNCrossroads;
 import com.jasmine.jasmine_core.Models.JNDamagedSemaphore;
 import com.jasmine.jasmine_core.Models.JNSemaphoreRoute;
@@ -37,9 +44,9 @@ public class JNMonitor {
 
         JNClusterRedisConnector redisConnector = parameterTool.getBoolean("use.redis.sink", false) ? new JNClusterRedisConnector(Collections.singletonList(new InetSocketAddress(parameterTool.get("flink.redis.host", "localhost"), parameterTool.getInt("flink.redis.port", 6379)))) : null;
 
-        MQTTConnector mqttConnector = parameterTool.getBoolean("masaccio.integration.enabled", false) ? new MQTTConnector("tcp://" + parameterTool.get("masaccio.mqtt.broker.host", "193.206.52.98") + ":" + parameterTool.get("masaccio.mqtt.broker.port", "1883")) : null;
+        MQTTConnector mqttConnector = parameterTool.getBoolean("masaccio.integration.enabled", false) || parameterTool.getBoolean("fsca.integration.enabled", false) ? new MQTTConnector(parameterTool.get("external.mqtt.broker.host", "193.206.52.98"), parameterTool.getInt("external.mqtt.broker.port", 1883)) : null;
 
-        //new JNJSONMQTTSource<>(mqttConnector, "test", JNDamagedSemaphore.class);
+        new JNJSONMQTTSource<>(mqttConnector, "test", JNDamagedSemaphore.class);
 
         new JNSemaphoreMonitor(parameterTool.get("kafka.semaphore.topic", "semaphore-topic"), kafkaProperties) {
             @Override
@@ -58,7 +65,8 @@ public class JNMonitor {
 
                 // Send to mqtt
                 if (parameterTool.getBoolean("masaccio.integration.enabled", false) && mqttConnector != null) {
-                    top10CrossroadsStream.flatMap(new JNFirstElementInListExtractor<>()).map(new JNCrossroadsAverageSpeedToMasaccioMessageMapFunction()).addSink(new MQTTSink<>(mqttConnector, parameterTool.get("masaccio.mqtt.crossroads.average.speed.topic", "area/2/monitoring/velocita_avg"), new MasaccioSerializer()));
+                    top10CrossroadsStream.flatMap(new JNFirstElementInListExtractor())
+                            .map(new JNCrossroadsAverageSpeedToMasaccioMessageMapFunction()).addSink(new MQTTSink<>(mqttConnector, parameterTool.get("masaccio.mqtt.crossroads.average.speed.topic", "area/2/monitoring/velocita_avg"), new MasaccioSerializer()));
                     biggerThanMedianCrossroadsStream.map(new JNCrossroadsVehiclesCountToMasaccioMessageMapFunction()).addSink(new MQTTSink<>(mqttConnector, parameterTool.get("masaccio.mqtt.average.vehicles.count.topic", "area/2/monitoring/veicoli_avg"), new MasaccioSerializer()));
                 }
             }
@@ -75,8 +83,9 @@ public class JNMonitor {
 
                 // Send to mqtt
                 if (parameterTool.getBoolean("masaccio.integration.enabled", false) && mqttConnector != null)
-                    damagedSemaphoreStream.map(new JNDamagedSemaphoreToMasaccioMessageMapFunction()).addSink(new MQTTSink<>(mqttConnector, parameterTool.get("masaccio.mqtt.damaged.semaphores.topic", "area/2/monitoring/luce_semaforo"), new MasaccioSerializer()));
-                //damagedSemaphoreStream.addSink(new JNJSONMQTTSink<>(mqttConnector, parameterTool.get("masaccio.mqtt.average.vehicles.count.topic", "area/1/monitoring/luce_semaforo"), JNDamagedSemaphore.class));
+                    damagedSemaphoreStream.map(new JNDamagedSemaphoreToMasaccioMessageMapFunction()).setParallelism(1).addSink(new MQTTSink<>(mqttConnector, parameterTool.get("masaccio.mqtt.damaged.semaphores.topic", "area/2/monitoring/luce_semaforo"), new MasaccioSerializer())).setParallelism(1);
+
+                damagedSemaphoreStream.flatMap(new FSCATest()).addSink(new JNJSONMQTTSink<>(mqttConnector, parameterTool.get("fsca.mqtt.cell.stats.output.topic", "jasmine/input"), FSCAWrappedCoordinates.class));
             }
         }.addToEnvironment(environment);
 
@@ -90,8 +99,14 @@ public class JNMonitor {
 
                 if (parameterTool.getBoolean("use.redis.sink", false) && redisConnector != null)
                     topSemaphoreRouteStream.addSink(new JNHSetRedisSinkFunction<>(redisConnector.getConfig(), "topSemaphoreRoute", new JNRedisSemaphoreRouteIdKeySelector())).name("JNSetRedisSinkFunction(bottomSemaphoreRoute-JNRedisSemaphoreRouteIdKeySelector)");
+
+                if (parameterTool.getBoolean("fsca.integration.enabled", false) && mqttConnector != null)
+                    topSemaphoreRouteStream.flatMap(new JNSemaphoreRouteListToFSCAWrappedCoordinatesFlatMapFunction()).addSink(new JNJSONMQTTSink<>(mqttConnector, parameterTool.get("fsca.mqtt.cell.stats.output.topic", "jasmine/input/"), FSCAWrappedCoordinates.class));
             }
         }.addToEnvironment(environment);
+
+        if (parameterTool.getBoolean("fsca.integration.enabled", false) && mqttConnector != null)
+            new FSCAMonitor(mqttConnector).addToEnvironment(environment);
 
         environment.execute("JASMINE Monitor");
     }

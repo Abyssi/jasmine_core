@@ -5,7 +5,7 @@ import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.functions.source.RichSourceFunction;
 
 public class MQTTSource<T> extends RichSourceFunction<T> {
-    private transient MQTTConnector connector;
+    private MQTTConnector connector;
     private String topic;
     private DeserializationSchema<T> valueDeserializer;
 
@@ -17,12 +17,16 @@ public class MQTTSource<T> extends RichSourceFunction<T> {
 
     @Override
     public void run(SourceContext<T> ctx) throws Exception {
-        connector.getClient().subscribe(this.topic, (topic, message) -> ctx.collect(valueDeserializer.deserialize(message.getPayload())));
+        this.connector.subscribe(this.topic, (message) -> ctx.collect(valueDeserializer.deserialize(message)));
     }
 
     @Override
     public void cancel() {
-        connector.close();
+        try {
+            connector.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

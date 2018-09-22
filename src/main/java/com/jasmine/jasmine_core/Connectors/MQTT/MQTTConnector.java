@@ -1,68 +1,67 @@
 package com.jasmine.jasmine_core.Connectors.MQTT;
 
-import org.eclipse.paho.client.mqttv3.MqttClient;
-import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
-import org.eclipse.paho.client.mqttv3.MqttException;
+import org.fusesource.mqtt.client.*;
 
 import java.io.Serializable;
+import java.nio.charset.StandardCharsets;
 
 public class MQTTConnector implements Serializable {
 
     // Required
-    private String url;
-    private String clientId;
-
+    private String host;
+    private int port;
     // Optional
     private String username;
     private String password;
-
     // Runtime
-    private transient MqttClient client;
+    private transient BlockingConnection blockingConnection;
 
-    public MQTTConnector(String url) {
-        this(url, MqttClient.generateClientId());
+    public MQTTConnector(String host, int port) {
+        this.host = host;
+        this.port = port;
     }
 
-    public MQTTConnector(String url, String username, String password) {
-        this(url, MqttClient.generateClientId(), username, password);
-    }
-
-    public MQTTConnector(String url, String clientId) {
-        this(url, clientId, null, null);
-    }
-
-    public MQTTConnector(String url, String clientId, String username, String password) {
-        this.url = url;
-        this.clientId = clientId;
+    public MQTTConnector(String host, int port, String username, String password) {
+        this.host = host;
+        this.port = port;
         this.username = username;
         this.password = password;
-
-        try {
-            this.connect();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     public void connect() throws Exception {
-        MqttConnectOptions connectOptions = new MqttConnectOptions();
-
-        if (username != null) connectOptions.setUserName(username);
-        if (password != null) connectOptions.setPassword(password.toCharArray());
-
-        client = new MqttClient(this.url, this.clientId);
-        client.connect(connectOptions);
+        MQTT mqtt = new MQTT();
+        mqtt.setHost(host, port);
+        if (username != null) mqtt.setUserName(username);
+        if (password != null) mqtt.setPassword(password);
+        blockingConnection = mqtt.blockingConnection();
+        blockingConnection.connect();
     }
 
-    public void close() {
-        try {
-            if (client != null)
-                client.disconnect();
-        } catch (MqttException ignored) {
+    public void close() throws Exception {
+        blockingConnection.disconnect();
+    }
+
+    public BlockingConnection getConnection() {
+        return blockingConnection;
+    }
+
+    public void publish(String topic, byte[] payload) throws Exception {
+        this.blockingConnection.publish(topic, payload, QoS.AT_LEAST_ONCE, false);
+        System.out.println("MQTT Sent: (" + topic + ") " + new String(payload, StandardCharsets.ISO_8859_1));
+    }
+
+    public void subscribe(String topic, MQTTMessageListener listener) throws Exception {
+        blockingConnection.subscribe(new Topic[]{new Topic(topic, QoS.AT_LEAST_ONCE)});
+        while (blockingConnection.isConnected()) {
+            Message message = blockingConnection.receive();
+            System.out.println("MQTT Received: (" + topic + ") " + new String(message.getPayload(), StandardCharsets.ISO_8859_1));
+            listener.messageArrived(message.getPayload());
+            message.ack();
         }
+        blockingConnection.disconnect();
     }
 
-    public MqttClient getClient() {
-        return client;
+    public interface MQTTMessageListener {
+        void messageArrived(byte[] payload) throws Exception;
     }
 }

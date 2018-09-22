@@ -1,4 +1,4 @@
-package com.jasmine.jasmine_core.Intergation;
+package com.jasmine.jasmine_core.Intergation.Masaccio;
 
 import com.jasmine.jasmine_core.Models.JNCrossroads;
 import org.apache.flink.api.common.functions.MapFunction;

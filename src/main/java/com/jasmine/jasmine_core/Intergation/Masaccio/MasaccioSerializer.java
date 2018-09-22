@@ -1,4 +1,4 @@
-package com.jasmine.jasmine_core.Intergation;
+package com.jasmine.jasmine_core.Intergation.Masaccio;
 
 import org.apache.flink.api.common.serialization.SerializationSchema;
 
@@ -8,6 +8,6 @@ public class MasaccioSerializer implements SerializationSchema<MasaccioMessage> 
 
     @Override
     public byte[] serialize(MasaccioMessage msg) {
-        return (msg.getId()+msg.getKindId()+"@"+msg.getValue()+"|"+String.valueOf(msg.getInstant().getEpochSecond())).getBytes();
+        return (msg.getId() + msg.getKindId() + "@" + msg.getValue() + "|" + String.valueOf(msg.getInstant().getEpochSecond())).getBytes();
     }
 }
